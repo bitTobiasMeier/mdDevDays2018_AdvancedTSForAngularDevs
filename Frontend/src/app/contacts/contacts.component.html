@@ -1,0 +1,11 @@
+<div class="cards">
+  <div *ngFor="let contact of contacts|async; even as isEven" class="card" style="width:25rem; margin-top:15px;margin-left:15px" [ngStyle]="{ 'background-color': isEven ? 'lightblue' : 'white' }"> 
+<h5 class="card-header">Kontakt</h5>   
+    <div *ngIf="isPerson(contact)" class="card-body">
+      <h5 class="card-title"><span class="badge badge-secondary">{{ contact.id }}</span> {{ (contact|person).lastname }} </h5>  
+    </div>
+
+    <md-company-view [company]="contact" *ngIf="! isPerson(contact) "></md-company-view>
+
+</div>
+</div>
