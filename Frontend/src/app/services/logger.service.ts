@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 
-
 @Injectable()
 export class LoggerService {
 
   constructor() { }
 
-  add (str: string): LoggerService {
+  add (str: string): this {
     // ToDo : Sinnvolle Logik einbauen
     return this;
   }
+
 
 }
 
@@ -21,14 +21,13 @@ export class ConsoleLoggerService extends LoggerService {
     super();
    }
 
-  add (str: string): ConsoleLoggerService {
+  add (str: string): this {
     super.add(str);
     return this;
   }
 
-  addDate (date: Date): ConsoleLoggerService {
+  addDate (date: Date): this {
     return this;
   }
 
 }
-

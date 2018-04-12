@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Neue Firma</h1>
   <form  (ngSubmit)="onSubmit()" #contactForm="ngForm">
-    <div class="form-group">
+    <div class="form-group" *ngIf="company">
       <label for="name">Firmenname</label>
       <input type="text" class="form-control" id="company" required  [(ngModel)]="company.company" name="company"
       #name="ngModel">

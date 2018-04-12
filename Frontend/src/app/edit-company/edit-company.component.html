@@ -1,5 +1,5 @@
-<div class="container" *ngIf="contact != null">
-  <h1>{{ contact.company }}</h1>
+<div class="container" *ngIf="contact">
+  <h1>{{ contact?.company }}</h1>
   <form   #contactForm="ngForm">
     <div class="form-group">
       <label for="name">Firmenname</label>

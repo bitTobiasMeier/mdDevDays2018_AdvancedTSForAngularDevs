@@ -14,6 +14,8 @@ import { CompanyViewComponent } from './company-view/company-view.component';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { EditCompanyComponent } from './edit-company/edit-company.component';
 import { PersonPipe } from './person.pipe';
+import { ContactService } from './services/contact.service';
+import {LoggerService, ConsoleLoggerService} from './services/logger.service';
 
 function GetApiBaseUrl() {
   let API_BASE_URL2 = '';
@@ -48,6 +50,9 @@ function GetApiBaseUrl() {
     AppRoutingModule
   ],
   providers: [ContactClient,
+    ContactService,
+    LoggerService,
+    ConsoleLoggerService,
     { provide: API_BASE_URL, useValue: GetApiBaseUrl() }],
   bootstrap: [AppComponent]
 })

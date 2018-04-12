@@ -6,9 +6,9 @@ import {Contact, Person} from './services/services.generated';
 })
 export class PersonPipe implements PipeTransform {
 
-  transform(value: Contact, args?: any): Person {
-    if ((<any>value).lastname) {
-      return value as Person;
+  transform(value: Contact, args?: any): Person | null {
+    if (value instanceof Person) {
+      return value;
     }
     return null;
   }

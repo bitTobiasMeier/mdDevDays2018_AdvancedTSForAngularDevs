@@ -1,20 +1,15 @@
 ﻿{
+  "runtime": "NetCore20",
   "swaggerGenerator": {
     "webApiToSwagger": {
-      "assemblyPaths": [
-        "../ContactService/ContactService/bin/Release/PublishOutput//ContactService.dll"
-      ],
-      "assemblyConfig": "../ContactService/ContactService/bin/Release/PublishOutput/web.config",
-      "referencePaths": [
-        "../ContactService/ContactService/bin/Release/PublishOutput/"
-      ],
-      "isAspNetCore": true,
       "controllerNames": [
         "ContactService.Controllers.ContactController",
         "ContactService.Controllers.AddressController"
       ],
+      "isAspNetCore": true,
       "defaultUrlTemplate": "api/{controller}/{id?}",
       "defaultPropertyNameHandling": "CamelCase",
+      "defaultReferenceTypeNullHandling": "Null",
       "defaultEnumHandling": "Integer",
       "flattenInheritanceHierarchy": false,
       "generateKnownTypes": true,
@@ -22,9 +17,18 @@
       "generateAbstractProperties": false,
       "addMissingPathParameters": false,
       "ignoreObsoleteProperties": false,
+      "allowReferencesWithProperties": false,
+      "excludedTypeNames": [],
       "infoTitle": "My Title",
       "infoVersion": "1.0.0",
-      "output": null
+      "output": null,
+      "assemblyPaths": [
+        "../../../Users/tmeier/source/repos/ContactService/ContactService/bin/Release/PublishOutput/ContactService.dll"
+      ],
+      "assemblyConfig": "../../../Users/tmeier/source/repos/ContactService/ContactService/bin/Release/PublishOutput/web.config",
+      "referencePaths": [
+        "../../../Users/tmeier/source/repos/ContactService/ContactService/bin/Release/PublishOutput/"
+      ]
     }
   },
   "codeGenerators": {
@@ -35,6 +39,8 @@
       "typeScriptVersion": 2.4,
       "template": "Angular",
       "promiseType": "Promise",
+      "httpClass": "HttpClient",
+      "injectionTokenType": "InjectionToken",
       "dateTimeType": "Date",
       "nullValue": "Undefined",
       "generateClientClasses": true,
@@ -55,9 +61,11 @@
       "excludedTypeNames": [],
       "handleReferences": false,
       "generateConstructorInterface": true,
+      "convertConstructorInterfaceData": false,
       "importRequiredTypes": true,
       "useGetBaseUrlMethod": false,
       "baseUrlTokenName": "API_BASE_URL",
+      "queryNullValue": "",
       "output": "src/app/services/services.generated.ts"
     }
   }

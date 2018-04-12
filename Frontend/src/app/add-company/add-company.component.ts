@@ -1,6 +1,7 @@
 import {Router} from '@angular/router';
-import {CompanyContact, ContactClient} from '../services/services.generated';
+import {CompanyContact} from '../services/services.generated';
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'md-add-company',
@@ -9,16 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCompanyComponent implements OnInit {
 
-  company: CompanyContact;
-  constructor(private client: ContactClient, private  router: Router) { }
+  company: CompanyContact ;
+  constructor(private  router: Router, private service: ContactService) {
+    this.company = new CompanyContact();
+  }
 
   ngOnInit() {
-    this.company = new CompanyContact();
-    this.company.company = '1';
+       this.company.company = '';
   }
 
   onSubmit() {
-    this.client.post(this.company).subscribe ( (result) =>  {
+    if (this.company === undefined) { return; }
+    this.service.post(this.company).subscribe ( (result) =>  {
       this.router.navigate(['/list']);
   });
  }

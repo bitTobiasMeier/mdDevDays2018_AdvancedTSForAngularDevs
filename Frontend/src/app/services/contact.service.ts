@@ -1,4 +1,4 @@
-/*
+
 import { Injectable } from '@angular/core';
 import {Contact, Person,  ContactClient,  CompanyContact,  CompanyPerson} from './services.generated';
 import { Observable } from 'rxjs/Observable';
@@ -34,4 +34,16 @@ export class ContactService {
 
 export declare type ContactType = (Person | CompanyContact | CompanyPerson);
 
-*/
+
+export class Square {
+  width: number;
+}
+export class Rectangle {
+  width: number;
+  height: number;
+}
+
+type test = Rectangle & Square;
+
+
+

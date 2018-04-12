@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Input } from '@angular/core';
-import { CompanyContact } from '../services/services.generated';
+import { CompanyContact, CompanyPerson } from '../services/services.generated';
 
 @Component({
   selector: 'md-company-view',
@@ -9,7 +9,7 @@ import { CompanyContact } from '../services/services.generated';
 })
 export class CompanyViewComponent implements OnInit {
 
-  @Input() company: CompanyContact;
+  @Input() company: Readonly<CompanyContact> | Readonly<CompanyPerson> ;
   constructor() { }
 
   ngOnInit() {

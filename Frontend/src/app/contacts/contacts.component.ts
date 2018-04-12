@@ -1,6 +1,9 @@
 import {Observable} from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-import {Person, ContactClient,  Contact} from '../services/services.generated';
+import {CompanyPerson, Person,   Contact,  CompanyContact} from '../services/services.generated';
+import { ContactService, ContactType } from '../services/contact.service';
+
+
 
 @Component({
   selector: 'md-contacts',
@@ -9,18 +12,31 @@ import {Person, ContactClient,  Contact} from '../services/services.generated';
 })
 export class ContactsComponent implements OnInit {
 
-  contacts: Observable<Contact[]>;
-  constructor(private contactClient: ContactClient) { }
+  contacts: ContactType [] | null = null;
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.contacts = this.contactClient.getAll();
+     this.contactService.getAll().subscribe ( (data) => {
+       this.contacts = data;
+     });
   }
 
-  isPerson (contact: Contact) {
-      // const person = contact as Person;
-      // return person != null && person !== undefined && person;
+  isPerson (contact: ContactType): contact is Person {
       return contact instanceof Person;
   }
 
+  isCompany (contact: ContactType): contact is CompanyContact | CompanyPerson {
+      if (contact instanceof CompanyContact) { return true; }
+      if (contact instanceof CompanyPerson) { return true; }
+      return false;
+  }
+
+  getSummary (contact: ContactType) {
+    if (this.isCompany(contact)) {
+      return contact.company;
+    } else {
+      return contact.firstname + ' ' + contact.lastname;
+    }
+  }
 }
 
