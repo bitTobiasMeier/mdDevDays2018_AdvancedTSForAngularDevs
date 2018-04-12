@@ -5,5 +5,5 @@ Folder backend: .Net Core Application
 Folder frontend: TypeScript examples
 Please adjust the backend url in Frontend/src/app/app.module.ts
 
-The branch "Optimierungen" contains the improvements.
+The branch "Improvements" contains the improvements.
 
